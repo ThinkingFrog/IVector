@@ -1,11 +1,17 @@
 #pragma once
 #include <cstddef>
 
-//Norm, RC = enum
+//RC = enum
 
 class Logger;
 
 class IVector {
+public:
+    enum NORM {
+        Infinite,
+	First,
+	Second
+    };
 public:
     static IVector* createVector(size_t dim, double const* ptr_data, Logger* pLogger);
     virtual IVector* clone() const = 0;
@@ -15,11 +21,11 @@ public:
     virtual RC scale(double multiplier) = 0;
     virtual size_t dim() const = 0;
 
-    static IVector* add(IVector const * op1, IVector const * op2);
-    static IVector* sub(IVector const * op1, IVector const * op2);
+    static IVector* add(IVector const * op1, IVector const * op2, Logger* pLogger);
+    static IVector* sub(IVector const * op1, IVector const * op2, Logger* pLogger);
 
-    static double dot(IVector const * op1, IVector const * op2);
-    static bool equals(IVector const * op1, IVector const * op2);
+    static double dot(IVector const * op1, IVector const * op2, Logger* pLogger);
+    static bool equals(IVector const * op1, IVector const * op2, NORM n, double tol, Logger* pLogger);
     virtual double norm(NORM n) const = 0;
 
     virtual ~IVector() = 0;
