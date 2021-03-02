@@ -8,10 +8,10 @@ class IVector {
 public:
     enum NORM {
         Infinite,
-	First,
-	Second
+        First,
+        Second
     };
-public:
+
     static IVector* createVector(size_t dim, double const* ptr_data, Logger* pLogger);
     virtual IVector* clone() const = 0;
     
@@ -28,9 +28,11 @@ public:
     virtual double norm(NORM n) const = 0;
 
     virtual ~IVector() = 0;
+
 private:
-    IVector(IVector const& vector) = delete;
-    IVector& operator =(IVector const& vector) = delete;
+    IVector(const IVector& vector) = delete;
+    IVector& operator=(const IVector& vector) = delete;
+
 protected:
     IVector() = default;
 };
