@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include "IVector.h"
+#include "RC.h"
 
 class ISet
 {

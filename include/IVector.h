@@ -1,7 +1,6 @@
 #pragma once
 #include <cstddef>
-
-//RC = enum
+#include "RC.h"
 
 class Logger;
 
