@@ -11,5 +11,8 @@ public:
 private:
 	Logger(const Logger &);
 	Logger &operator=(const Logger&);
+
+protected:
+	Logger() = default;
 };
 
