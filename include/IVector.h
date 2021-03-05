@@ -27,6 +27,9 @@ public:
     static bool equals(IVector const * op1, IVector const * op2, NORM n, double tol, Logger* pLogger);
     virtual double norm(NORM n) const = 0;
 
+    virtual RC applyFunction(std::function<double(double)> fun) = 0;
+    virtual RC foreach(std::function<void(double)> fun) const = 0;
+
     virtual ~IVector() = 0;
 
 private:
