@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "RC.h"
 
 class Logger {
 public:
