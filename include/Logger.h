@@ -1,18 +1,25 @@
-#prgama once
+#pragma once
 #include <string>
 
 class Logger {
 public:
-	static Logger *createLogger(std::string filename);
+	static Logger* createLogger();
+	static Logger* createLogger(const std::string& filename);
 
-	virtual RC log(std::string message) = 0;
+	/*
+	* @param [in] code Error code
+	*
+	* @param [in] scrfile File from where log() was called
+	*
+	* @param [in] line Number of line from where log() was called 
+	*/
+	virtual RC log(RC code, const std::string& srcfile, int line) = 0;
 	virtual ~Logger() = 0;
 
 private:
-	Logger(const Logger &);
-	Logger &operator=(const Logger&);
+	Logger(const Logger&);
+	Logger& operator=(const Logger&);
 
 protected:
 	Logger() = default;
 };
-

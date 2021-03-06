@@ -16,12 +16,13 @@ public:
     enum NORM {
         INFINITE,
         FIRST,
-        SECOND
+        SECOND,
+        AMOUNT
     };
 
-    static IVector* createVector(size_t dim, double const* const ptr_data);
-    static RC copyInstance(IVector* const dest, IVector const* const src);
-    static RC moveInstance(IVector* const dest, IVector* const src);
+    static IVector* createVector(size_t dim, double const* const& ptr_data);
+    static RC copyInstance(IVector* const dest, IVector const* const& src);
+    static RC moveInstance(IVector* const dest, IVector* const& src);
 
     virtual IVector* clone() const = 0;
     virtual double const* getData() const = 0;
@@ -33,14 +34,14 @@ public:
     virtual RC scale(double multiplier) = 0;
     virtual size_t getDim() const = 0;
 
-    virtual RC inc(IVector const* const op) = 0;
-    virtual RC dec(IVector const* const op) = 0;
+    virtual RC inc(IVector const* const& op) = 0;
+    virtual RC dec(IVector const* const& op) = 0;
 
-    static IVector* add(IVector const* const op1, IVector const* const op2);
-    static IVector* sub(IVector const* const op1, IVector const* const op2);
+    static IVector* add(IVector const* const& op1, IVector const* const& op2);
+    static IVector* sub(IVector const* const& op1, IVector const* const& op2);
 
-    static double dot(IVector const* const op1, IVector const* const op2);
-    static bool equals(IVector const* const op1, IVector const* const op2, NORM n, double tol);
+    static double dot(IVector const* const& op1, IVector const* const& op2);
+    static bool equals(IVector const* const& op1, IVector const* const& op2, NORM n, double tol);
     virtual double norm(NORM n) const = 0;
 
     virtual RC applyFunction(const std::function<double(double)>& fun) = 0;
