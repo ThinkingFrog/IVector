@@ -27,11 +27,11 @@ public:
 	virtual RC remove(ISet const * const& pat, IVector::NORM n, double tol) = 0;
 
 	virtual ~ISet() = 0;
-private:
-	
+
+private:	
 	ISet(const ISet& other);
 	ISet &operator=(const ISet& other);
+
 protected:
-	
 	ISet() = default;
 };

@@ -2,6 +2,12 @@
 #include <cstddef>
 #include "RC.h"
 
+//size_t size = sizeof(Vector_Impl) + dim * sizeof(double)
+//uint8_t* pInstance = new(std::nothrow) assert(pInstance)
+//uint8_t* pData = pInstance + sizeof(Vector)
+//memcpy(pData, (uint8_t*)ptrData, dim * sizeof(double))
+//return new(pInstance) Vecotr_Impl(dim)
+
 class Logger;
 
 class IVector {
@@ -12,9 +18,12 @@ public:
         Second
     };
 
-    static IVector* createVector(size_t dim, double const* ptr_data, Logger* pLogger);
+    static IVector* createVector(size_t dim, double const* const& ptr_data, Logger* pLogger);
     virtual IVector* clone() const = 0;
-    
+    static RC copyInstance(IVector* dest, IVector const* const& src) const = 0;
+    static RC moveInstance(IVector* dest, IVector* const& src) = 0;
+    virtual double const * const getData() const = 0;
+
     virtual RC getCord(size_t index, double& val) const = 0;
     virtual RC setCord(size_t index, double val) = 0;
     virtual RC scale(double multiplier) = 0;
@@ -27,8 +36,12 @@ public:
     static bool equals(IVector const * op1, IVector const * op2, NORM n, double tol, Logger* pLogger);
     virtual double norm(NORM n) const = 0;
 
+
     virtual RC applyFunction(const std::function<double(double)>& fun) = 0;
     virtual RC foreach(const std::function<void(double)>& fun) const = 0;
+
+    virtual size_t sizeAllocated() const = 0;
+
 
     virtual ~IVector() = 0;
 
