@@ -29,6 +29,18 @@ public:
     virtual RC scale(double multiplier) = 0;
     virtual size_t dim() const = 0;
 
+    //	Methods: increment, decrement
+    //	Purpose: inplace add or subtract vector inplace (equal to vec1 = vec1 +/- vec2)
+    //
+    //	Param1: addend or subtrahend (for decrement)
+    //	Param2: Logger for extended information about error
+    //
+    //	Return value: nullptr, if failed, or pointer to object,
+    //	in order to make possible to construct such expressions like:
+    //	vector1->decrement(vector2)->decrement(vector3)
+    virtual IVector *increment(IVector * op, Logger* pLogger) = 0;
+    virtual IVector *decrement(IVector * op, Logger* pLogger) = 0;
+
     static IVector* add(IVector const * op1, IVector const * op2, Logger* pLogger);
     static IVector* sub(IVector const * op1, IVector const * op2, Logger* pLogger);
 
