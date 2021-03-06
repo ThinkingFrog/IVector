@@ -2,10 +2,10 @@
 #include <string>
 #include "RC.h"
 
-class Logger {
+class ILogger {
 public:
-	static Logger* createLogger();
-	static Logger* createLogger(const std::string& filename);
+	static ILogger* createLogger();
+	static ILogger* createLogger(const std::string& filename);
 
 	/*
 	* @param [in] code Error code
@@ -15,12 +15,12 @@ public:
 	* @param [in] line Number of line from where log() was called 
 	*/
 	virtual RC log(RC code, const std::string& srcfile, int line) = 0;
-	virtual ~Logger() = 0;
+	virtual ~ILogger() = 0;
 
 private:
-	Logger(const Logger&);
-	Logger& operator=(const Logger&);
+	ILogger(const ILogger&);
+	ILogger& operator=(const ILogger&);
 
 protected:
-	Logger() = default;
+	ILogger() = default;
 };
