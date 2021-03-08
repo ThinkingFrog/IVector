@@ -18,7 +18,7 @@ public:
 	virtual size_t getDim() const = 0;
 	virtual size_t getSize() const = 0;
 
-	virtual RC get(size_t index, IVector const *& val) const = 0;
+	virtual RC get(size_t index, IVector const* val) const = 0;
 	virtual RC findFirst(ISet const * const& pat, IVector::NORM n, double tol, IVector const *& val) const = 0;
 
 	virtual RC insert(ISet const *& val, IVector::NORM n, double tol) = 0;
@@ -27,11 +27,11 @@ public:
 	virtual RC remove(ISet const * const& pat, IVector::NORM n, double tol) = 0;
 
 	virtual ~ISet() = 0;
-private:
-	
+
+private:	
 	ISet(const ISet& other);
 	ISet &operator=(const ISet& other);
+
 protected:
-	
 	ISet() = default;
 };
