@@ -10,7 +10,7 @@ public:
 	/*
 	* @param [in] code Error code
 	*
-	* @param [in] scrfile File from where log() was called
+	* @param [in] srcfile File from where log() was called
 	*
 	* @param [in] line Number of line from where log() was called 
 	*/
