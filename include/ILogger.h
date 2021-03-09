@@ -27,7 +27,7 @@ public:
 	/*
 	* @param [in] filename Name of file for log output
 	*
-	* @param [in] rewrite_if_exist True if you want to write over existing file
+	* @param [in] rewrite_if_exist True if you want to write over existing file (passed by default)
 	* False if you want to append into existing file
 	*/
 	static ILogger* createLogger(const std::string& filename, bool rewrite_if_exist = true);
