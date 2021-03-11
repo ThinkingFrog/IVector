@@ -12,7 +12,7 @@
 
 class IVector {
 public:
-    enum NORM {
+    enum class NORM {
         INFINITE,
         FIRST,
         SECOND,
