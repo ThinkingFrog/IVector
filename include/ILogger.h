@@ -53,32 +53,44 @@ public:
 	/*
 	* Same as log() but Level == SEVER
 	*/
-	virtual RC sever(RC code, const std::string& srcfile, const std::string& function, int line) = 0;
+	virtual RC sever(RC code, const std::string& srcfile, const std::string& function, int line) {
+		return log(code, Level::SEVER, srcfile, function, line);
+	};
 
 	/*
 	* Same as sever() but without information about caller
 	*/
-	virtual RC sever(RC code) = 0;
+	virtual RC sever(RC code) {
+		return log(code, Level::SEVER);
+	};
 
 	/*
 	* Same as log() but Level == WARNING
 	*/
-	virtual RC warning(RC code, const std::string& srcfile, const std::string& function, int line) = 0;
+	virtual RC warning(RC code, const std::string& srcfile, const std::string& function, int line) {
+		return log(code, Level::WARNING, srcfile, function, line);
+	};
 
 	/*
 	* Same as warning() but without information about caller
 	*/
-	virtual RC warning(RC code) = 0;
+	virtual RC warning(RC code) {
+		return log(code, Level::WARNING);
+	};
 
 	/*
 	* Same as log() but Level == INFO
 	*/
-	virtual RC info(RC code, const std::string& srcfile, const std::string& function, int line) = 0;
+	virtual RC info(RC code, const std::string& srcfile, const std::string& function, int line) {
+		return log(code, Level::INFO, srcfile, function, line);
+	};
 
 	/*
 	* Same as info() but without information about caller
 	*/
-	virtual RC info(RC code) = 0;
+	virtual RC info(RC code) {
+		return log(code, Level::INFO);
+	};
 
 	virtual ~ILogger() = 0;
 
