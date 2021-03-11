@@ -2,7 +2,7 @@
 #include <cstddef>
 #include <functional>
 #include "RC.h"
-#include "ILogger.h.h"
+#include "ILogger.h"
 
 //size_t size = sizeof(Vector_Impl) + dim * sizeof(double)
 //uint8_t* pInstance = new(std::nothrow) assert(pInstance)
