@@ -19,12 +19,12 @@ public:
 	virtual size_t getSize() const = 0;
 
 	virtual RC get(size_t index, IVector const* val) const = 0;
-	virtual RC findFirst(ISet const * const& pat, IVector::NORM n, double tol, IVector const *& val) const = 0;
+	virtual RC findFirst(IVector const * const& pat, IVector::NORM n, double tol, IVector const *& val) const = 0;
 
 	virtual RC insert(IVector const *& val, IVector::NORM n, double tol) = 0;
 
 	virtual RC remove(size_t index) = 0;
-	virtual RC remove(ISet const * const& pat, IVector::NORM n, double tol) = 0;
+	virtual RC remove(IVector const * const& pat, IVector::NORM n, double tol) = 0;
 
 	virtual ~ISet() = 0;
 
