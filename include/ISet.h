@@ -5,15 +5,17 @@
 
 class ISet {
 public:
+	static RC setLogger(ILogger* const logger);
+	
 	static ISet* createSet(ILogger* pLogger);
 
-	static ISet* cap(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol, ILogger* pLogger);
-	static ISet* cup(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol, ILogger* pLogger);
-	static ISet* sub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol, ILogger* pLogger);
-	static ISet* symSub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol, ILogger* pLogger);
+	static ISet* cap(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static ISet* cup(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static ISet* sub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static ISet* symSub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 
-	static bool equals(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol, ILogger* pLogger);
-	static bool subSet(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol, ILogger* pLogger);
+	static bool equals(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static bool subSet(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 
 	virtual size_t getDim() const = 0;
 	virtual size_t getSize() const = 0;
