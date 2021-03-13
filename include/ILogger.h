@@ -5,10 +5,13 @@
 /*
 * Defines for comfortable logging with information about caller
 */
+
+/*
 #define SendLog(Logger, Code, Level) Logger->log((Code), (Level), __FILE__, __func__, __LINE__)
 #define SendSever(Logger, Code) Logger->sever((Code), __FILE__, __func__, __LINE__)
 #define SendWarning(Logger, Code) Logger->warning((Code), __FILE__, __func__, __LINE__)
 #define SendInfo(Logger, Code) Logger->info((Code), __FILE__, __func__, __LINE__)
+*/
 
 class ILogger {
 public:
@@ -30,7 +33,7 @@ public:
     * True if you want to write over existing file (passed by default)
     * False if you want to append into existing file
     */
-    static ILogger *createLogger(const std::string &filename, bool rewrite_if_exist = true);
+    static ILogger *createLogger(const char* const& filename, bool rewrite_if_exist = true);
 
     /*
     * @param [in] code Error code
@@ -44,7 +47,7 @@ public:
     * @param [in] line Number of line from where log() was called
     *
     */
-    virtual RC log(RC code, Level level, const std::string &srcfile, const std::string &function, int line) = 0;
+    virtual RC log(RC code, Level level, const char* const& srcfile, const char* const& function, int line) = 0;
 
     /*
     * Same as log() but without information about caller
@@ -54,7 +57,7 @@ public:
     /*
     * Same as log() but Level == SEVER
     */
-    virtual RC sever(RC code, const std::string &srcfile, const std::string &function, int line) {
+    virtual RC sever(RC code, const char* const& srcfile, const char* const& function, int line) {
         return log(code, Level::SEVER, srcfile, function, line);
     };
 
@@ -68,7 +71,7 @@ public:
     /*
     * Same as log() but Level == WARNING
     */
-    virtual RC warning(RC code, const std::string &srcfile, const std::string &function, int line) {
+    virtual RC warning(RC code, const char* const& srcfile, const char* const& function, int line) {
         return log(code, Level::WARNING, srcfile, function, line);
     };
 
@@ -82,7 +85,7 @@ public:
     /*
     * Same as log() but Level == INFO
     */
-    virtual RC info(RC code, const std::string &srcfile, const std::string &function, int line) {
+    virtual RC info(RC code, const char* const& srcfile, const char* const& function, int line) {
         return log(code, Level::INFO, srcfile, function, line);
     };
 
