@@ -10,8 +10,7 @@
 #define SendWarning(Logger, Code) Logger->warning((Code), __FILE__, __func__, __LINE__)
 #define SendInfo(Logger, Code) Logger->info((Code), __FILE__, __func__, __LINE__)
 
-class ILogger
-{
+class ILogger {
 public:
     enum class Level {
         SEVER,   // Critical error that prevents application from running further
