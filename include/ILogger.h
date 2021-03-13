@@ -32,7 +32,7 @@ public:
     * True if you want to write over existing file (passed by default)
     * False if you want to append into existing file
     */
-    static ILogger *createLogger(const char* const& filename, bool rewrite_if_exist = true);
+    static ILogger *createLogger(const char* const& filename, bool overwrite = true);
 
     /*
     * @param [in] code Error code
