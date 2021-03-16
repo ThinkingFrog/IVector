@@ -13,7 +13,7 @@
 class IVector {
 public:
     enum class NORM {
-        INFINITE,
+        CHEBYSHEV, // Renamed INFINITE, previous name was colliding with windows.h macros
         FIRST,
         SECOND,
         AMOUNT
