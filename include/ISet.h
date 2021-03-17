@@ -10,11 +10,11 @@ public:
 	*
 	* @param [in] indexInc Quantity of steps forward
 	*/
-	virtual ISetIterator * getNext(size_t indexInc = 1)  = 0;
+	virtual ISetIterator * getNext(size_t indexInc = 1) const = 0;
 	/*
 	* @param [in] indexInc Quantity of steps backward
 	*/
-	virtual ISetIterator * getPrevious(size_t indexDec = 1) = 0;
+	virtual ISetIterator * getPrevious(size_t indexDec = 1) const = 0;
 
 	/*
 	* Moves iterator forward/backward
@@ -26,7 +26,7 @@ public:
 	/*
 	* Getter of value (same semantic as ISet::get)
 	*/
-	virtual RC getValue(IVector const* val) = 0;
+	virtual RC getValue(IVector const* val) const = 0;
 
 	virtual ~ISetIterator()  = 0;
 
@@ -34,7 +34,7 @@ private:
 	/*
 	* Returns pointer to associated vector (necessary for comparison ISetIterator::equal)
 	*/
-	virtual IVector const * const getPtr() = 0;
+	virtual IVector const * const getPtr() const = 0;
 
 	ISetIterator(const ISetIterator&);
 	ISetIterator& operator=(const ISetIterator&);
