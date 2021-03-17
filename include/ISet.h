@@ -33,7 +33,7 @@ public:
 	class IIterator {
 	public:
 		virtual IIterator * next(size_t indexInc = 1)  = 0;
-		virtual IIterator * previous(size_t indexDec = 1) override = 0;
+		virtual IIterator * previous(size_t indexDec = 1) = 0;
 
 		static bool equal(const IIterator *op1, const IIterator *op2);
 		virtual RC getValue(IVector const* val) = 0;
