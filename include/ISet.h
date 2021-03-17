@@ -6,7 +6,7 @@
 class ISet {
 public:
 	static RC setLogger(ILogger* const logger);
-	
+
 	static ISet* createSet(ILogger* pLogger);
 
 	static ISet* cap(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
@@ -30,7 +30,30 @@ public:
 
 	virtual ~ISet() = 0;
 
-private:	
+	class IIterator {
+	public:
+		virtual IIterator * next(size_t indexInc = 1)  = 0;
+		virtual IIterator * previous(size_t indexDec = 1) override = 0;
+
+		static bool equal(const IIterator *op1, const IIterator *op2);
+		virtual RC getValue(IVector const* val) = 0;
+		virtual IVector const * const getPtr() = 0;
+
+		virtual ~IIterator()  = 0;
+
+	private:
+		IIterator(const IIterator&);
+		IIterator& operator=(const IIterator&);
+
+	protected:
+		IIterator() = default;
+	};
+
+	IIterator *getIterator(size_t index);
+	IIterator *getBegin();
+	IIterator *getEnd();
+
+private:
 	ISet(const ISet& other);
 	ISet &operator=(const ISet& other);
 
