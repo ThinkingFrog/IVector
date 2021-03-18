@@ -20,7 +20,7 @@ public:
 	virtual size_t getDim() const = 0;
 	virtual size_t getSize() const = 0;
 
-	virtual RC get(size_t index, IVector const* val) const = 0;
+	virtual RC get(size_t index, IVector const*& val) const = 0;
 	virtual RC findFirst(IVector const * const& pat, IVector::NORM n, double tol, IVector const *& val) const = 0;
 
 	virtual RC insert(IVector const *& val, IVector::NORM n, double tol) = 0;
