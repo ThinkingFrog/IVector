@@ -35,6 +35,12 @@ public:
     static ILogger *createLogger(const char* const& filename, bool overwrite = true);
 
     /*
+    * Logging is supposed to be implemented by receiving RC error code and writing corresponding string to output
+    * 
+    * It means that you have to store pre-defined {RC: string} pairs in any way
+    * 
+    * It's recommended to use std::map<RC, std::string> to call std::map::operator[] for easy string retrieval
+    * 
     * @param [in] code Error code
     *
     * @param [in] level Level of threat, that caused logging
