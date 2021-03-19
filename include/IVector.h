@@ -1,6 +1,8 @@
 #pragma once
 #include <cstddef>
+#include <functional>
 #include "RC.h"
+#include "ILogger.h"
 
 //size_t size = sizeof(Vector_Impl) + dim * sizeof(double)
 //uint8_t* pInstance = new(std::nothrow) assert(pInstance)
@@ -8,40 +10,43 @@
 //memcpy(pData, (uint8_t*)ptrData, dim * sizeof(double))
 //return new(pInstance) Vecotr_Impl(dim)
 
-class Logger;
-
 class IVector {
 public:
-    enum NORM {
-        Infinite,
-        First,
-        Second
+    enum class NORM {
+        CHEBYSHEV, // Renamed INFINITE, previous name was colliding with windows.h macros
+        FIRST,
+        SECOND,
+        AMOUNT
     };
 
-    static IVector* createVector(size_t dim, double const* const& ptr_data, Logger* pLogger);
+    static IVector* createVector(size_t dim, double const* const& ptr_data);
+    static RC copyInstance(IVector* const dest, IVector const* const& src);
+    static RC moveInstance(IVector* const dest, IVector*& src);
+
     virtual IVector* clone() const = 0;
-    static RC copyInstance(IVector* dest, IVector const* const& src) const = 0;
-    static RC moveInstance(IVector* dest, IVector* const& src) = 0;
-    virtual double const * const getData() const = 0;
+    virtual double const* getData() const = 0;
+
+    static RC setLogger(ILogger* const logger);
 
     virtual RC getCord(size_t index, double& val) const = 0;
     virtual RC setCord(size_t index, double val) = 0;
     virtual RC scale(double multiplier) = 0;
-    virtual size_t dim() const = 0;
+    virtual size_t getDim() const = 0;
 
-    static IVector* add(IVector const * op1, IVector const * op2, Logger* pLogger);
-    static IVector* sub(IVector const * op1, IVector const * op2, Logger* pLogger);
+    virtual RC inc(IVector const* const& op) = 0;
+    virtual RC dec(IVector const* const& op) = 0;
 
-    static double dot(IVector const * op1, IVector const * op2, Logger* pLogger);
-    static bool equals(IVector const * op1, IVector const * op2, NORM n, double tol, Logger* pLogger);
+    static IVector* add(IVector const* const& op1, IVector const* const& op2);
+    static IVector* sub(IVector const* const& op1, IVector const* const& op2);
+
+    static double dot(IVector const* const& op1, IVector const* const& op2);
+    static bool equals(IVector const* const& op1, IVector const* const& op2, NORM n, double tol);
     virtual double norm(NORM n) const = 0;
-
 
     virtual RC applyFunction(const std::function<double(double)>& fun) = 0;
     virtual RC foreach(const std::function<void(double)>& fun) const = 0;
 
     virtual size_t sizeAllocated() const = 0;
-
 
     virtual ~IVector() = 0;
 
