@@ -9,8 +9,8 @@ public:
 	
 	static ISet* createSet(ILogger* pLogger);
 
-	static ISet* cap(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
-	static ISet* cup(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static ISet* makeIntersection(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static ISet* makeUnion(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 	static ISet* sub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 	static ISet* symSub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 
