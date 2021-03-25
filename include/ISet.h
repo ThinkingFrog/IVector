@@ -56,12 +56,13 @@ public:
 
 		virtual ~IIterator()  = 0;
 
-	private:
+	protected:
 		/*
 		* Returns pointer to associated vector (necessary for comparison IIterator::equal)
 		*/
 		virtual IVector const * const getPtr() const = 0;
 
+	private:
 		IIterator(const IIterator&);
 		IIterator& operator=(const IIterator&);
 
