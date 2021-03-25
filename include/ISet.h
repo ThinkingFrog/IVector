@@ -36,16 +36,11 @@ public:
 		* @param [in] indexInc Quantity of steps forward
 		*/
 		virtual IIterator * getNext(size_t indexInc = 1) const = 0;
-		/*
-		* @param [in] indexInc Quantity of steps backward
-		*/
-		virtual IIterator * getPrevious(size_t indexDec = 1) const = 0;
 
 		/*
 		* Moves iterator forward/backward
 		*/
 		virtual RC next(size_t indexInc = 1)  = 0;
-		virtual RC previous(size_t indexDec = 1) = 0;
 
 		static bool equal(const IIterator *op1, const IIterator *op2);
 		/*
