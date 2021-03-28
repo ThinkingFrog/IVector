@@ -2,8 +2,9 @@
 #include <cstddef>
 #include "IVector.h"
 #include "RC.h"
+#include "Interfacedllexport.h"
 
-class ISet {
+DLL_EXPORT class ISet {
 public:
 	static RC setLogger(ILogger* const logger);
 	

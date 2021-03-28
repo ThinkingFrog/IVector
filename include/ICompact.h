@@ -1,6 +1,7 @@
 #pragma once
+#include "Interfacedllexport.h"
 
-class ICompact {
+DLL_EXPORT class ICompact {
 public:
     static ICompact* createCompact(IVector const * vec1, IVector const * vec2, IVector const * vec3);
 
