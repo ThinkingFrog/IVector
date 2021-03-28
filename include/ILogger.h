@@ -13,7 +13,7 @@
 #define SendInfo(Logger, Code) Logger->info((Code), __FILE__, __func__, __LINE__)
 */
 
-DLL_EXPORT class ILogger {
+class DLL_EXPORT ILogger {
 public:
     enum class Level {
         SEVERE,   // Critical error that prevents application from running further

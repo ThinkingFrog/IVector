@@ -11,7 +11,7 @@
 //memcpy(pData, (uint8_t*)ptrData, dim * sizeof(double))
 //return new(pInstance) Vecotr_Impl(dim)
 
-DLL_EXPORT class IVector {
+class DLL_EXPORT IVector {
 public:
     enum class NORM {
         CHEBYSHEV, // Renamed INFINITE, previous name was colliding with windows.h macros
