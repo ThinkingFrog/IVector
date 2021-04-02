@@ -28,6 +28,9 @@ public:
 	virtual RC remove(size_t index) = 0;
 	virtual RC remove(IVector const * const& pat, IVector::NORM n, double tol) = 0;
 
+	/*
+	* Iterator object can be created with ISet methods ISet::getIterator, ISet::getBegin, ISet::getEnd
+	*/
 	class IIterator {
 	public:
 		/*
