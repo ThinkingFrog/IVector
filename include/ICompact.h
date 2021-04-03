@@ -32,8 +32,6 @@ public:
     	virtual IIterator * getMoved(IVector const *inc) = 0;
     	virtual RC move(IVector const *inc) = 0;
 
-    	virtual RC changeNorm(IVector::NORM new_norm) = 0;
-
 		virtual RC getVectorCopy(IVector *& val) const = 0;
 		virtual RC getVectorCopy(IVector const *& val) const = 0;
 
@@ -42,7 +40,7 @@ public:
 		virtual ~IIterator() = 0;
     };
 
-    IIterator * getIterator(IVector const *vec, IVector::NORM n) const = 0;
+    IIterator * getIterator(IVector const *vec) const = 0;
     IIterator * getBegin() const = 0;
     IIterator * getEnd() const = 0;
 
