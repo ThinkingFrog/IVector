@@ -22,6 +22,7 @@ public:
     static IVector* createVector(size_t dim, double const* const& ptr_data);
     static RC copyInstance(IVector* const dest, IVector const* const& src);
     static RC moveInstance(IVector* const dest, IVector*& src);
+    static RC moveInstance(IVector* const dest, IVector const *& src);
 
     virtual IVector* clone() const = 0;
     virtual double const* getData() const = 0;
