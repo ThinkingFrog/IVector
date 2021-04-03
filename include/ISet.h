@@ -39,18 +39,24 @@ public:
 		* @param [in] indexInc Quantity of steps forward
 		*/
 		virtual IIterator * getNext(size_t indexInc = 1) const = 0;
+		virtual IIterator * getPrevious(size_t indexInc = 1) const = 0;
 
 		/*
 		* Moves iterator forward/backward
 		*/
 		virtual RC next(size_t indexInc = 1)  = 0;
+		virtual RC previous(size_t indexInc = 1)  = 0;
 
 		static bool equal(const IIterator *op1, const IIterator *op2);
 		/*
-		* Getter of value (same semantic as ISet::get)
+		* Getter of value (same semantic as ISet::getCopy)
 		*/
-		virtual RC getValue(IVector const*& val) const = 0;
-		virtual RC getValue(IVector *& val) const = 0;
+		virtual RC getVectorCopy(IVector const*& val) const = 0;
+		virtual RC getVectorCopy(IVector *& val) const = 0;
+		/*
+		* Getter of value (same semantic as ISet::getCoords)
+		*/
+		virtual RC getVectorCoords(IVector * const& val) const = 0;
 
 		virtual ~IIterator()  = 0;
 
