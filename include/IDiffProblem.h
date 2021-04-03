@@ -4,16 +4,16 @@
 
 class IDiffProblem : public IProblem {
 public:
-	static IDiffProblem * createDiffProblem(ICompact const * const &params, ICompact const * const &args);
+    static IDiffProblem * createDiffProblem(ICompact const * const &params, ICompact const * const &args);
 
-	virtual double derivativeByArgs(IVector const *vec, IMultiIndex const *index);
+    virtual double derivativeByArgs(IVector const *vec, IMultiIndex const *index);
 
-	virtual IVector *evalGradientByArgs(IVector const *vec) const = 0;
+    virtual IVector *evalGradientByArgs(IVector const *vec) const = 0;
 
 private:
-	IDiffProblem(const IDiffProblem &) = delete;
-	IDiffProblem& operator=(const IDiffProblem &) = delete;
+    IDiffProblem(const IDiffProblem &) = delete;
+    IDiffProblem& operator=(const IDiffProblem &) = delete;
 
 protected:
-	IDiffProblem() = default;
+    IDiffProblem() = default;
 };
