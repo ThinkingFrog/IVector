@@ -19,23 +19,23 @@ public:
     virtual RC getVectorCoord(IMultiIndex const *index, IVector * const& val) const = 0;
 
     class IIterator {
-	public:
-    	virtual IIterator * getMovedIterator(IVector const *inc) = 0;
-    	virtual RC moveIterator(IVector const *inc) = 0;
+    public:
+        virtual IIterator * getMovedIterator(IVector const *inc) = 0;
+        virtual RC moveIterator(IVector const *inc) = 0;
 
-		virtual RC getVectorCopy(IVector *& val) const = 0;
-		virtual RC getVectorCopy(IVector const *& val) const = 0;
+        virtual RC getVectorCopy(IVector *& val) const = 0;
+        virtual RC getVectorCopy(IVector const *& val) const = 0;
 
-		virtual RC getVectorCoord(IVector * const& val) const = 0;
+        virtual RC getVectorCoord(IVector * const& val) const = 0;
 
-		virtual ~IIterator() = 0;
+        virtual ~IIterator() = 0;
 
-	private:
-		IIterator(const IIterator&) = delete;
-		IIterator& operator=(const IIterator&) = delete;
+    private:
+        IIterator(const IIterator&) = delete;
+        IIterator& operator=(const IIterator&) = delete;
 
-	protected:
-		IIterator() = default;
+    protected:
+        IIterator() = default;
     };
 
     IIterator * getIterator(IVector const *vec) const = 0;
