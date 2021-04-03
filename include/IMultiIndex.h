@@ -3,7 +3,7 @@
 
 class IMultiIndex {
 public:
-    static IMultiIndex * createIndex(size_t dim, const size_t* indices);
+    static IMultiIndex * createMultiIndex(size_t dim, const size_t* indices);
 
     virtual RC getAxisIndex(size_t axisIndex, size_t &val) const = 0;
     virtual RC setAxisIndex(size_t axisIndex, size_t val) = 0;

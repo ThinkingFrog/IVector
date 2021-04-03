@@ -16,7 +16,7 @@ public:
     virtual RC getVectorCopy(IMultiIndex const *index, IVector *& val) const = 0;
     virtual RC getVectorCopy(IMultiIndex const *index, IVector const *& val) const = 0;
 
-    virtual RC getVectorCoord(IMultiIndex const *index, IVector * const& val) const = 0;
+    virtual RC getVectorCoords(IMultiIndex const *index, IVector * const& val) const = 0;
 
     class IIterator {
     public:
@@ -26,7 +26,7 @@ public:
         virtual RC getVectorCopy(IVector *& val) const = 0;
         virtual RC getVectorCopy(IVector const *& val) const = 0;
 
-        virtual RC getVectorCoord(IVector * const& val) const = 0;
+        virtual RC getVectorCoords(IVector * const& val) const = 0;
 
         virtual ~IIterator() = 0;
 
