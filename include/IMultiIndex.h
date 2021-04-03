@@ -1,0 +1,24 @@
+#pragma once
+#include <cstddef>
+
+class IMultiIndex {
+public:
+	static IMultiIndex * createIndex(size_t dim, const size_t* indices);
+
+	virtual RC getAxisIndex(size_t axis_index, size_t &val) const = 0;
+	virtual RC setAxisIndex(size_t axis_index, size_t val) = 0;
+
+	virtual RC incAxisIndex(size_t axis_index, ssize_t val) = 0;
+
+	virtual size_t getDim() const = 0;
+	virtual const size_t *getData() const = 0;
+
+	virtual ~IMultiIndex() = 0;
+
+private:
+	IMultiIndex(const IMultiIndex&) = delete;
+	IMultiIndex& operator=(const IMultiIndex&) = delete;
+
+protected:
+	IMultiIndex() = default;
+};
