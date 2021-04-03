@@ -2,6 +2,7 @@
 #include "ILogger.h"
 #include "IVector.h"
 #include "RC.h"
+#include "IMultiIndex.h"
 
 class ICompact {
 public:
@@ -12,25 +13,15 @@ public:
     /* CompactSpan - компактная оболочка: строим наименьшее компактное множество, содержащее 2 переданных */
     static ICompact* createCompactSpan(ICompact const *op1, ICompact const *op2);
 
-    class Index {
-    	static Index * createIndex(size_t dim, const size_t* indices);
+    virtual RC getVectorCopy(IMultiIndex const *index, IVector *& val) const = 0;
+    virtual RC getVectorCopy(IMultiIndex const *index, IVector const *& val) const = 0;
 
-    	virtual RC getAxisIndex(size_t axes_index) const = 0;
-    	virtual RC setAxisIndex(size_t axes_index) = 0;
-
-    	virtual RC incAxisIndex(size_t axes_index, ssize_t val) = 0;
-
-    	virtual ~Index() = 0;
-    };
-
-    virtual RC getVectorCopy(Index const *index, IVector *& val) const = 0;
-    virtual RC getVectorCopy(Index const *index, IVector const *& val) const = 0;
-
-    virtual RC getVectorCoord(Index const *index, IVector * const& val) const = 0;
+    virtual RC getVectorCoord(IMultiIndex const *index, IVector * const& val) const = 0;
 
     class IIterator {
-    	virtual IIterator * getMoved(IVector const *inc) = 0;
-    	virtual RC move(IVector const *inc) = 0;
+	public:
+    	virtual IIterator * getMovedIterator(IVector const *inc) = 0;
+    	virtual RC moveIterator(IVector const *inc) = 0;
 
 		virtual RC getVectorCopy(IVector *& val) const = 0;
 		virtual RC getVectorCopy(IVector const *& val) const = 0;
@@ -38,6 +29,13 @@ public:
 		virtual RC getVectorCoord(IVector * const& val) const = 0;
 
 		virtual ~IIterator() = 0;
+
+	private:
+		IIterator(const IIterator&) = delete;
+		IIterator& operator=(const IIterator&) = delete;
+
+	protected:
+		IIterator() = default;
     };
 
     IIterator * getIterator(IVector const *vec) const = 0;
