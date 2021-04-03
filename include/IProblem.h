@@ -4,6 +4,7 @@
 #include "IVector.h"
 
 class IProblem {
+public:
 	static IProblem * createProblem(ICompact const * const &params, ICompact const * const &args);
 
 	static RC setLogger(ILogger * const logger);
