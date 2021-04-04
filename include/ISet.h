@@ -7,7 +7,7 @@ class ISet {
 public:
 	static RC setLogger(ILogger* const logger);
 	
-	static ISet* createSet(ILogger* pLogger);
+	static ISet* createSet();
 
 	static ISet* makeIntersection(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 	static ISet* makeUnion(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
