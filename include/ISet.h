@@ -6,11 +6,16 @@
 class ISet {
 public:
 	static RC setLogger(ILogger* const logger);
+<<<<<<< HEAD
 
-	static ISet* createSet(ILogger* pLogger);
+	static ISet* createSet();
+=======
+	
+	static ISet* createSet();
+>>>>>>> main
 
-	static ISet* cap(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
-	static ISet* cup(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static ISet* makeIntersection(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
+	static ISet* makeUnion(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 	static ISet* sub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 	static ISet* symSub(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
 
@@ -20,10 +25,21 @@ public:
 	virtual size_t getDim() const = 0;
 	virtual size_t getSize() const = 0;
 
-	virtual RC get(size_t index, IVector const* val) const = 0;
-	virtual RC findFirst(IVector const * const& pat, IVector::NORM n, double tol, IVector const *& val) const = 0;
+	/*
+	 * Method creating new IVector and assigning new address to val
+	 */
+	virtual RC getCopy(size_t index, IVector const*& val) const = 0;
+	virtual RC getCopy(size_t index, IVector *& val) const = 0;
+	virtual RC findFirstAndCopy(IVector const * const& pat, IVector::NORM n, double tol, IVector const *& val) const = 0;
+	virtual RC findFirstAndCopy(IVector const * const& pat, IVector::NORM n, double tol, IVector *& val) const = 0;
 
-	virtual RC insert(IVector const *& val, IVector::NORM n, double tol) = 0;
+	/*
+	 * Method copy data from vector in ISet to vector val
+	 */
+	virtual RC getCoords(size_t index, IVector * const& val) const = 0;
+	virtual RC findFirstAndCopyCoords(IVector const * const& pat, IVector::NORM n, double tol, IVector * const& val) const = 0;
+
+	virtual RC insert(IVector const * const& val, IVector::NORM n, double tol) = 0;
 
 	virtual RC remove(size_t index) = 0;
 	virtual RC remove(IVector const * const& pat, IVector::NORM n, double tol) = 0;
