@@ -5,6 +5,8 @@
 class IDiffProblem : public IProblem {
 public:
     static IDiffProblem * createDiffProblem(ICompact const * const &params, ICompact const * const &args);
+    
+    static RC setLogger(ILogger * const logger);
 
     virtual double evalDerivativeByArgs(IVector const *args, IMultiIndex const *index) const = 0;
     virtual double evalDerivativeByParams(IVector const *params, IMultiIndex const *index) const = 0;
