@@ -25,6 +25,8 @@ public:
 
     virtual IVector* clone() const = 0;
     virtual double const* getData() const = 0;
+    // Dim needs for double check that ptr_data have the same size as dimension of vector
+    virtual RC setData(size_t dim, double const* const& ptr_data) = 0;
 
     static RC setLogger(ILogger* const logger);
 
