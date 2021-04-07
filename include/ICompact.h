@@ -6,12 +6,15 @@
 
 class ICompact {
 public:
-    static ICompact* createCompact(IVector const * vec1, IVector const * vec2, size_t dim, const size_t *nodeQuantity);
+    static ICompact* createCompact(IVector const * vec1, IVector const * vec2, IMultiIndex const *nodeQuantities);
 
     static ICompact* createIntersection(ICompact const *op1, ICompact const *op2, double tol);
 
     /* CompactSpan - компактная оболочка: строим наименьшее компактное множество, содержащее 2 переданных */
     static ICompact* createCompactSpan(ICompact const *op1, ICompact const *op2);
+
+    virtual ICompact *clone() const = 0;
+
     /*
     * Method creating new IVector and assigning new address to val
     */
