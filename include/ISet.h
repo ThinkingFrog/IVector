@@ -8,6 +8,7 @@ public:
     static RC setLogger(ILogger* const logger);
 
     static ISet* createSet();
+    virtual ISet* clone() const = 0;
 
     static ISet* makeIntersection(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
     static ISet* makeUnion(ISet const * const& op1, ISet const * const& op2, IVector::NORM n, double tol);
@@ -51,6 +52,9 @@ public:
         */
         virtual IIterator * getNext(size_t indexInc = 1) const = 0;
         virtual IIterator * getPrevious(size_t indexInc = 1) const = 0;
+        virtual IIterator * clone() const = 0;
+
+        static RC setLogger(ILogger * const pLogger);
 
         /*
         * Moves iterator forward/backward
@@ -73,9 +77,9 @@ public:
 
     protected:
         /*
-        * Returns pointer to associated vector (necessary for comparison IIterator::equal)
+        * As long as iterator refers to vector in ISet, which corresponds to unique index, we can compare iterators by this index
         */
-        virtual IVector const * const getPtr() const = 0;
+        virtual size_t getIndex() const = 0;
 
     private:
         IIterator(const IIterator&);
