@@ -6,6 +6,7 @@
 class IProblem {
 public:
     static IProblem * createProblem(ICompact const * const &params, ICompact const * const &args);
+    virtual IProblem * clone() const = 0;
 
     static RC setLogger(ILogger * const logger);
 
