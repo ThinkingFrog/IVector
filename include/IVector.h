@@ -4,12 +4,6 @@
 #include "RC.h"
 #include "ILogger.h"
 
-//size_t size = sizeof(Vector_Impl) + dim * sizeof(double)
-//uint8_t* pInstance = new(std::nothrow) assert(pInstance)
-//uint8_t* pData = pInstance + sizeof(Vector)
-//memcpy(pData, (uint8_t*)ptrData, dim * sizeof(double))
-//return new(pInstance) Vecotr_Impl(dim)
-
 class IVector {
 public:
     enum class NORM {
@@ -22,9 +16,15 @@ public:
     static IVector* createVector(size_t dim, double const* const& ptr_data);
     static RC copyInstance(IVector* const dest, IVector const* const& src);
     static RC moveInstance(IVector* const dest, IVector*& src);
+    /*
+    * This method absolutely the same as above. Created to be able to move from constant vectors
+    */
+    static RC moveInstance(IVector* const dest, IVector const *& src);
 
     virtual IVector* clone() const = 0;
     virtual double const* getData() const = 0;
+    // Dim needs for double check that ptr_data have the same size as dimension of vector
+    virtual RC setData(size_t dim, double const* const& ptr_data) = 0;
 
     static RC setLogger(ILogger* const logger);
 

@@ -96,8 +96,8 @@ public:
     virtual ~ISet() = 0;
 
 private:
-    ISet(const ISet& other);
-    ISet &operator=(const ISet& other);
+    ISet(const ISet& other) = delete;
+    ISet &operator=(const ISet& other) = delete;
 
 protected:
     ISet() = default;
