@@ -4,12 +4,6 @@
 #include "RC.h"
 #include "ILogger.h"
 
-//size_t size = sizeof(Vector_Impl) + dim * sizeof(double)
-//uint8_t* pInstance = new(std::nothrow) assert(pInstance)
-//uint8_t* pData = pInstance + sizeof(Vector)
-//memcpy(pData, (uint8_t*)ptrData, dim * sizeof(double))
-//return new(pInstance) Vecotr_Impl(dim)
-
 class IVector {
 public:
     enum class NORM {
