@@ -16,10 +16,6 @@ public:
     static IVector* createVector(size_t dim, double const* const& ptr_data);
     static RC copyInstance(IVector* const dest, IVector const* const& src);
     static RC moveInstance(IVector* const dest, IVector*& src);
-    /*
-    * This method absolutely the same as above. Created to be able to move from constant vectors
-    */
-    static RC moveInstance(IVector* const dest, IVector const *& src);
 
     virtual IVector* clone() const = 0;
     virtual double const* getData() const = 0;

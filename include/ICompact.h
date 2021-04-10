@@ -16,7 +16,6 @@ public:
     * Method creating new IVector and assigning new address to val
     */
     virtual RC getVectorCopy(IMultiIndex const *index, IVector *& val) const = 0;
-    virtual RC getVectorCopy(IMultiIndex const *index, IVector const *& val) const = 0;
     /*
     * Method copy data from vector in ISet to vector val
     */
@@ -30,7 +29,6 @@ public:
         * Method creating new IVector and assigning new address to val
         */
         virtual RC getVectorCopy(IVector *& val) const = 0;
-        virtual RC getVectorCopy(IVector const *& val) const = 0;
         /*
         * Method copy data from vector in ISet to vector val
         */
