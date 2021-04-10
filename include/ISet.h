@@ -24,9 +24,7 @@ public:
     /*
      * Method creating new IVector and assigning new address to val
      */
-    virtual RC getCopy(size_t index, IVector const*& val) const = 0;
     virtual RC getCopy(size_t index, IVector *& val) const = 0;
-    virtual RC findFirstAndCopy(IVector const * const& pat, IVector::NORM n, double tol, IVector const *& val) const = 0;
     virtual RC findFirstAndCopy(IVector const * const& pat, IVector::NORM n, double tol, IVector *& val) const = 0;
 
     /*
@@ -66,7 +64,6 @@ public:
         /*
         * Getter of value (same semantic as ISet::getCopy)
         */
-        virtual RC getVectorCopy(IVector const*& val) const = 0;
         virtual RC getVectorCopy(IVector *& val) const = 0;
         /*
         * Getter of value (same semantic as ISet::getCoords)
