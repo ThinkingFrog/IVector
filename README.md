@@ -4,4 +4,4 @@
 
 ## Описание интерфейсов 
 
-[Описание интерфейсов](https://github.com/ThinkingFrog/IVector/blob/main/InterfaceDescription.md).
+[Описание интерфейсов](https://github.com/ThinkingFrog/IVector/blob/main/DESCRIPTION.md).
