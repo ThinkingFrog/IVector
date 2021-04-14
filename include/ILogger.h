@@ -105,8 +105,8 @@ public:
     virtual ~ILogger() = 0;
 
 private:
-    ILogger(const ILogger &);
-    ILogger &operator=(const ILogger &);
+    ILogger(const ILogger &) = delete;
+    ILogger &operator=(const ILogger &) = delete;
 
 protected:
     ILogger() = default;

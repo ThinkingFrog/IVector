@@ -5,12 +5,6 @@
 #include "ILogger.h"
 #include "Interfacedllexport.h"
 
-//size_t size = sizeof(Vector_Impl) + dim * sizeof(double)
-//uint8_t* pInstance = new(std::nothrow) assert(pInstance)
-//uint8_t* pData = pInstance + sizeof(Vector)
-//memcpy(pData, (uint8_t*)ptrData, dim * sizeof(double))
-//return new(pInstance) Vecotr_Impl(dim)
-
 class DLL_EXPORT IVector {
 public:
     enum class NORM {
@@ -26,6 +20,8 @@ public:
 
     virtual IVector* clone() const = 0;
     virtual double const* getData() const = 0;
+    // Dim needs for double check that ptr_data have the same size as dimension of vector
+    virtual RC setData(size_t dim, double const* const& ptr_data) = 0;
 
     static RC setLogger(ILogger* const logger);
 
