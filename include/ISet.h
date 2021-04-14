@@ -4,7 +4,7 @@
 #include "RC.h"
 #include "Interfacedllexport.h"
 
-class DLL_EXPORT ISet {
+class LIB_EXPORT ISet {
 public:
     static RC setLogger(ILogger* const logger);
 
@@ -77,7 +77,7 @@ public:
         /*
         * As long as iterator refers to vector in ISet, which corresponds to unique index, we can compare iterators by this index
         */
-        virtual size_t getIndex() const = 0;
+        LIB_LOCAL virtual size_t getIndex() const = 0;
 
     private:
         IIterator(const IIterator&);
