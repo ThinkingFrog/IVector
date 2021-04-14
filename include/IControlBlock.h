@@ -2,14 +2,17 @@
 #include "IVector.h"
 #include <cstddef>
 
-class IControlBlock {
+class ISetControlBlock {
 public:
-	virtual RC get(IVector *const &vec, size_t &index) const = 0;
+    virtual RC getNext(IVector *const &vec, size_t &index, size_t indexInc = 1) const = 0;
+    virtual RC getPrevious(IVector *const &vec, size_t &index, size_t indexInc = 1) const = 0;
+
+    virtual ~ISetControlBlock() = 0
 
 private:
-	IControlBlock(IControlBlock const &);
-	IControlBlock& operator=(IControlBlock const &);
+    ISetControlBlock(ISetControlBlock const &);
+    ISetControlBlock& operator=(ISetControlBlock const &);
 
 protected:
-	IControlBlock() = default;
+    ISetControlBlock() = default;
 };
