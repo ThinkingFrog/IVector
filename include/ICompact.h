@@ -14,6 +14,8 @@ public:
 
     virtual size_t getDim() const = 0;
     virtual IMultiIndex* getGrid() const = 0;
+
+    virtual bool isInside(IVector const * const&vec) const = 0;
     /*
     * Method creating new IVector and assigning new address to val
     */
