@@ -14,5 +14,7 @@ enum class RC {
     VECTOR_NOT_FOUND, // Couldn't find vector instance in ISet method
     IO_ERROR, // Couldn't write/read to/from file
     MEMORY_INTERSECTION, // Found intersecting memory while copying instance
+    SOURCE_SET_DESTROYED,
+    SOURCE_SET_EMPTY,
     AMOUNT
 };
