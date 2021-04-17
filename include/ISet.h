@@ -60,10 +60,11 @@ public:
         virtual RC next(size_t indexInc = 1)  = 0;
         virtual RC previous(size_t indexInc = 1)  = 0;
         
-        virtual bool isBegin() = 0;
-        virtual bool isEnd() = 0;
+        virtual bool isValid() const = 0;
 
-        static bool equal(const IIterator *op1, const IIterator *op2);
+        virtual RC makeBegin() = 0;
+        virtual RC makeEnd() = 0;
+
         /*
         * Getter of value (same semantic as ISet::getCopy)
         */
