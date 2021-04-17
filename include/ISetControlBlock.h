@@ -7,8 +7,8 @@ public:
     virtual RC getNext(IVector *const &vec, size_t &index, size_t indexInc = 1) const = 0;
     virtual RC getPrevious(IVector *const &vec, size_t &index, size_t indexInc = 1) const = 0;
     
-    virtual bool isBegin(size_t &index) = 0;
-    virtual bool isEnd(size_t &index) = 0;
+    virtual bool isBegin(size_t index) = 0;
+    virtual bool isEnd(size_t index) = 0;
 
     virtual ~ISetControlBlock() = 0
 
