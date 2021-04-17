@@ -16,5 +16,7 @@ enum class RC {
     MEMORY_INTERSECTION, // Found intersecting memory while copying instance
     SOURCE_SET_DESTROYED,
     SOURCE_SET_EMPTY,
+    VECTOR_ALREADY_EXIST,
+    SET_INDEX_OVERFLOW,
     AMOUNT
 };
