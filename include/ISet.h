@@ -76,12 +76,6 @@ public:
 
         virtual ~IIterator()  = 0;
 
-    protected:
-        /*
-        * As long as iterator refers to vector in ISet, which corresponds to unique index, we can compare iterators by this index
-        */
-        virtual size_t getIndex() const = 0;
-
     private:
         IIterator(const IIterator&);
         IIterator& operator=(const IIterator&);
