@@ -32,6 +32,7 @@ public:
      */
     virtual RC getCoords(size_t index, IVector * const& val) const = 0;
     virtual RC findFirstAndCopyCoords(IVector const * const& pat, IVector::NORM n, double tol, IVector * const& val) const = 0;
+    virtual RC findFirst(IVector const * const& pat, IVector::NORM n, double tol) const = 0;
 
     virtual RC insert(IVector const * const& val, IVector::NORM n, double tol) = 0;
 
