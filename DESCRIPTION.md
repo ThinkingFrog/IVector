@@ -1,6 +1,6 @@
 # Интерфейсы
 
-<a name="logger"></a>## ILogger
+## <a name="logger"></a>ILogger
 
 [Интерфейс для логгера](https://github.com/ThinkingFrog/IVector/blob/main/include/ILogger.h). Используется для протоколирования действий и ошибок.
 Связанный с ним [класс ошибок](https://github.com/ThinkingFrog/IVector/blob/main/include/RC.h).
