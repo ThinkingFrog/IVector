@@ -1,8 +1,9 @@
 #pragma once
 #include "IProblem.h"
 #include "IMultiIndex.h"
+#include "Interfacedllexport.h"
 
-class IDiffProblem : public IProblem {
+class LIB_EXPORT IDiffProblem : public IProblem {
 public:
     static IDiffProblem * createDiffProblem(ICompact const * const &params, ICompact const * const &args);
     IDiffProblem * clone() const override = 0;

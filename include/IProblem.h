@@ -2,8 +2,9 @@
 #include "ICompact.h"
 #include "ILogger.h"
 #include "IVector.h"
+#include "Interfacedllexport.h"
 
-class IProblem {
+class LIB_EXPORT IProblem {
 public:
     static IProblem * createProblem(ICompact const * const &params, ICompact const * const &args);
     virtual IProblem * clone() const = 0;
