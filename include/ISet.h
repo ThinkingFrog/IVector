@@ -33,6 +33,7 @@ public:
      */
     virtual RC getCoords(size_t index, IVector * const& val) const = 0;
     virtual RC findFirstAndCopyCoords(IVector const * const& pat, IVector::NORM n, double tol, IVector * const& val) const = 0;
+    virtual RC findFirst(IVector const * const& pat, IVector::NORM n, double tol) const = 0;
 
     virtual RC insert(IVector const * const& val, IVector::NORM n, double tol) = 0;
 
@@ -60,8 +61,12 @@ public:
         */
         virtual RC next(size_t indexInc = 1)  = 0;
         virtual RC previous(size_t indexInc = 1)  = 0;
+        
+        virtual bool isValid() const = 0;
 
-        static bool equal(const IIterator *op1, const IIterator *op2);
+        virtual RC makeBegin() = 0;
+        virtual RC makeEnd() = 0;
+
         /*
         * Getter of value (same semantic as ISet::getCopy)
         */
@@ -73,18 +78,17 @@ public:
 
         virtual ~IIterator()  = 0;
 
-    protected:
-        /*
-        * As long as iterator refers to vector in ISet, which corresponds to unique index, we can compare iterators by this index
-        */
-        LIB_LOCAL virtual size_t getIndex() const = 0;
-
     private:
         IIterator(const IIterator&);
         IIterator& operator=(const IIterator&);
 
     protected:
         IIterator() = default;
+        
+        /*
+        * As long as iterator refers to vector in ISet, which corresponds to unique index, we can compare iterators by this index
+        */  
+        LIB_LOCAL virtual size_t getIndex() const = 0;
     };
 
     virtual IIterator *getIterator(size_t index) const = 0;
