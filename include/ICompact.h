@@ -1,10 +1,11 @@
 #pragma once
+#include "Interfacedllexport.h"
 #include "ILogger.h"
 #include "IVector.h"
 #include "RC.h"
 #include "IMultiIndex.h"
 
-class ICompact {
+class LIB_EXPORT ICompact {
 public:
     static ICompact* createCompact(IVector const * vec1, IVector const * vec2, IMultiIndex const *nodeQuantities);
 
@@ -59,7 +60,7 @@ public:
         /*
          * Every iterator corresponds to grid node -> corresponds to some multi-index, method necessary for comparison
          */
-        virtual IMultiIndex const * const getIndex() const = 0;
+        LIB_LOCAL virtual IMultiIndex const * const getIndex() const = 0;
 
     private:
         IIterator(const IIterator&) = delete;

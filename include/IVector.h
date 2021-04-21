@@ -3,8 +3,9 @@
 #include <functional>
 #include "RC.h"
 #include "ILogger.h"
+#include "Interfacedllexport.h"
 
-class IVector {
+class LIB_EXPORT IVector {
 public:
     enum class NORM {
         CHEBYSHEV, // Renamed INFINITE, previous name was colliding with windows.h macros
