@@ -8,6 +8,8 @@
 class ISolver {
     static ISolver* createSolver();
     static RC setLogger(ILogger* const pLogger);
+    
+    virtual ISolver* clone() const = 0;
 
     virtual RC setProblem(IProblem const* const& pProblem) = 0;
 
