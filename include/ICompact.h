@@ -43,8 +43,6 @@ public:
 
         virtual RC moveIterator(IVector const *inc) = 0;
 
-        static bool equal(const IIterator *op1, const IIterator *op2);
-
         /*
         * Method creating new IVector and assigning new address to val
         */
@@ -55,12 +53,6 @@ public:
         virtual RC getVectorCoords(IVector * const& val) const = 0;
 
         virtual ~IIterator() = 0;
-
-    protected:
-        /*
-         * Every iterator corresponds to grid node -> corresponds to some multi-index, method necessary for comparison
-         */
-        LIB_LOCAL virtual IMultiIndex const * const getIndex() const = 0;
 
     private:
         IIterator(const IIterator&) = delete;

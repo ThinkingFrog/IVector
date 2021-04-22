@@ -83,12 +83,7 @@ public:
         IIterator& operator=(const IIterator&);
 
     protected:
-        IIterator() = default;
-        
-        /*
-        * As long as iterator refers to vector in ISet, which corresponds to unique index, we can compare iterators by this index
-        */  
-        LIB_LOCAL virtual size_t getIndex() const = 0;
+        IIterator() = default;        
     };
 
     virtual IIterator *getIterator(size_t index) const = 0;
