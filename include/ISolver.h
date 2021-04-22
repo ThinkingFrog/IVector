@@ -3,12 +3,13 @@
 #include "ICompact.h"
 #include "ISet.h"
 #include "IProblem.h"
+#include "Interfacedllexport.h"
 
 class ISolver {
     static ISolver* createSolver();
     static RC setLogger(ILogger* const pLogger);
 
-    virtual RC setProblem(IProblem* const& pProblem) = 0;
+    virtual RC setProblem(IProblem const* const& pProblem) = 0;
 
     virtual bool isValidArgsDomain(ICompact const* const& args) const = 0;
     virtual bool isValidParamsDomain(ICompact const* const& params) const = 0;
