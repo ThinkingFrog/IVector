@@ -9,6 +9,8 @@ public:
 
     virtual size_t getDim() const = 0;
     virtual const size_t *getData() const = 0;
+    // Dim needs for double check that ptr_data have the same size as dimension of multi-index
+    virtual RC setData(size_t dim, size_t const* const& ptr_data) = 0;
 
     static RC setLogger(ILogger * const pLogger);
 
