@@ -5,7 +5,7 @@
 #include "IProblem.h"
 #include "Interfacedllexport.h"
 
-class ISolver {
+class LIB_EXPORT ISolver {
     static ISolver* createSolver();
     static RC setLogger(ILogger* const pLogger);
     
