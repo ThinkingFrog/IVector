@@ -30,7 +30,8 @@ public:
     virtual size_t getDim() const = 0;
     virtual IMultiIndex* getGrid() const = 0;
 
-    static ICompact* createIntersection(ICompact const *op1, ICompact const *op2, double tol);
+    //  grid используется для задания сетки на получившемся пересечении
+    static ICompact* createIntersection(ICompact const *op1, ICompact const *op2, IMultiIndex const* const grid, double tol);
     /* CompactSpan - компактная оболочка: строим наименьшее компактное множество, содержащее 2 переданных */
     static ICompact* createCompactSpan(ICompact const *op1, ICompact const *op2);
 
@@ -63,7 +64,9 @@ public:
     };
 
     virtual IIterator* getIterator(IVector const *vec) const = 0;
+    // возвращает итератор на левейшую границу
     virtual IIterator* getBegin() const = 0;
+    // возвращает итератор на правейшую границу
     virtual IIterator* getEnd() const = 0;
 
 private:
