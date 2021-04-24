@@ -13,9 +13,6 @@ public:
 
     static RC setLogger(ILogger* const logger);
 
-    virtual size_t getDim() const = 0;
-    virtual IMultiIndex* getGrid() const = 0;
-
     virtual bool isInside(IVector const * const&vec) const = 0;
     /*
     * Method creating new IVector and assigning new address to val
@@ -26,9 +23,12 @@ public:
     */
     virtual RC getVectorCoords(IMultiIndex const *index, IVector * const& val) const = 0;
 
-    virtual RC setLeftBoundary(IVector const * vec) = 0;
-    virtual RC setRightBoundary(IVector const * vec) = 0;
-    virtual RC setGrid(IMultiIndex const *nodeQuantities) = 0;
+    // левейшая по всем координатам
+    virtual RC getLeftBoundary(IVector *& vec) const = 0;
+    // правейшая по всем координатам
+    virtual RC getRightBoundary(IVector *& vec) const = 0;
+    virtual size_t getDim() const = 0;
+    virtual IMultiIndex* getGrid() const = 0;
 
     static ICompact* createIntersection(ICompact const *op1, ICompact const *op2, double tol);
     /* CompactSpan - компактная оболочка: строим наименьшее компактное множество, содержащее 2 переданных */

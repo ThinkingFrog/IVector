@@ -12,9 +12,9 @@ public:
     * @param [in] val Old iterator position, new position will be stored here
     *
     */
-    virtual RC get(IVector const * const &shift, IVector * const&val) const = 0;
+    virtual RC get(IVector const* const &shift, IVector* const&val) const = 0;
 
-    virtual ~ICompactControlBlock() = 0
+    virtual ~ICompactControlBlock() = 0;
 
 private:
     ICompactControlBlock(ICompactControlBlock const &);
