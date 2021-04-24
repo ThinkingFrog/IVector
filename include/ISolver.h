@@ -23,7 +23,6 @@ class LIB_EXPORT ISolver {
     virtual RC solveByArgs(IVector const* const& initArg, IVector* const* const& solverParams) = 0;
     virtual RC solveByParams(IVector const* const& initParam, IVector* const* const& solverParams) = 0;
     virtual RC getSolution(IVector*& solution) const = 0;
-    virtual RC getIntervalEstimation(ISet*& interval) const = 0;
 
     virtual ~ISolver() = 0;
 
