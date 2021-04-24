@@ -24,6 +24,7 @@ public:
     virtual RC setData(size_t dim, double const* const& ptr_data) = 0;
 
     static RC setLogger(ILogger* const logger);
+    virtual RC getLogger() const = 0;
 
     virtual RC getCord(size_t index, double& val) const = 0;
     virtual RC setCord(size_t index, double val) = 0;
