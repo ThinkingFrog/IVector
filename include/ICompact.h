@@ -33,7 +33,7 @@ public:
     //  grid используется для задания сетки на получившемся пересечении
     static ICompact* createIntersection(ICompact const *op1, ICompact const *op2, IMultiIndex const* const grid, double tol);
     /* CompactSpan - компактная оболочка: строим наименьшее компактное множество, содержащее 2 переданных */
-    static ICompact* createCompactSpan(ICompact const *op1, ICompact const *op2);
+    static ICompact* createCompactSpan(ICompact const *op1, ICompact const *op2, IMultiIndex const* const grid);
 
     class IIterator {
     public:
