@@ -62,9 +62,9 @@ public:
         IIterator() = default;
     };
 
-    IIterator * getIterator(IVector const *vec) const = 0;
-    IIterator * getBegin() const = 0;
-    IIterator * getEnd() const = 0;
+    virtual IIterator* getIterator(IVector const *vec) const = 0;
+    virtual IIterator* getBegin() const = 0;
+    virtual IIterator* getEnd() const = 0;
 
 private:
     ICompact(const ICompact& compact) = delete;

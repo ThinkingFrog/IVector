@@ -17,7 +17,7 @@ public:
     virtual RC getAxisIndex(size_t axisIndex, size_t &val) const = 0;
     virtual RC setAxisIndex(size_t axisIndex, size_t val) = 0;
 
-    virtual RC incAxisIndex(size_t axisIndex, ssize_t val) = 0;
+    virtual RC incAxisIndex(size_t axisIndex, size_t val) = 0;
 
     virtual ~IMultiIndex() = 0;
 
