@@ -10,7 +10,7 @@ public:
     virtual RC getBegin(IVector *const &vec, size_t &index) const = 0;
     virtual RC getEnd(IVector *const &vec, size_t &index) const = 0;
 
-    virtual ~ISetControlBlock() = 0
+    virtual ~ISetControlBlock() = 0;
 
 private:
     ISetControlBlock(ISetControlBlock const &);
