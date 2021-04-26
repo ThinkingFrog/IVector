@@ -63,11 +63,11 @@ public:
         IIterator() = default;
     };
 
-    virtual IIterator* getIterator(IMultiIndex const * const&index) const = 0;
+    virtual IIterator* getIterator(IMultiIndex const * const&index, IMultiIndex const * const &bypassOrder) const = 0;
     // возвращает итератор на левейшую границу
-    virtual IIterator* getBegin() const = 0;
+    virtual IIterator* getBegin(IMultiIndex const * const &bypassOrder) const = 0;
     // возвращает итератор на правейшую границу
-    virtual IIterator* getEnd() const = 0;
+    virtual IIterator* getEnd(IMultiIndex const * const &bypassOrder) const = 0;
 
 private:
     ICompact(const ICompact& compact) = delete;
