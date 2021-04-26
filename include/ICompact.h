@@ -37,12 +37,12 @@ public:
 
     class IIterator {
     public:
-        virtual IIterator * getMovedIterator(IVector const *inc) = 0;
+        virtual IIterator * getMovedIterator() = 0;
         virtual IIterator * clone() const = 0;
 
         static RC setLogger(ILogger * const pLogger);
 
-        virtual RC moveIterator(IVector const *inc) = 0;
+        virtual RC moveForwardIterator() = 0;
 
         /*
         * Method creating new IVector and assigning new address to val
@@ -63,11 +63,11 @@ public:
         IIterator() = default;
     };
 
-    virtual IIterator* getIterator(IVector const *vec) const = 0;
+    virtual IIterator* getIterator(IMultiIndex const * const&index, IMultiIndex const * const &bypassOrder) const = 0;
     // возвращает итератор на левейшую границу
-    virtual IIterator* getBegin() const = 0;
+    virtual IIterator* getBegin(IMultiIndex const * const &bypassOrder) const = 0;
     // возвращает итератор на правейшую границу
-    virtual IIterator* getEnd() const = 0;
+    virtual IIterator* getEnd(IMultiIndex const * const &bypassOrder) const = 0;
 
 private:
     ICompact(const ICompact& compact) = delete;
