@@ -19,7 +19,7 @@
 
 ### Описание интерфейса
 
-### Метод `createLogger`
+#### Метод `createLogger`
 
 | Метод: `createLogger` | |
 |---|---|
