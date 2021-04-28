@@ -10,6 +10,7 @@ public:
     virtual IProblem * clone() const = 0;
 
     static RC setLogger(ILogger * const logger);
+    static ILogger* getLogger();
 
     virtual bool isValidParams(IVector const * const &params) const = 0;
     virtual bool isValidArgs(IVector const * const &args) const = 0;
