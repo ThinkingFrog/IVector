@@ -69,7 +69,7 @@ public:
     // возвращает итератор на правейшую границу
     virtual IIterator* getEnd(IMultiIndex const * const &bypassOrder) const = 0;
     
-    virtual ICompact() = 0;
+    virtual ~ICompact() = 0;
 
 private:
     ICompact(const ICompact& compact) = delete;
