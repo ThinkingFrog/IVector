@@ -8,6 +8,7 @@
 class LIB_EXPORT ISolver {
     static ISolver* createSolver();
     static RC setLogger(ILogger* const pLogger);
+    static ILogger* getLogger();
     
     virtual ISolver* clone() const = 0;
 
