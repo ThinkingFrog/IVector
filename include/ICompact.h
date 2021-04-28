@@ -12,6 +12,7 @@ public:
     virtual ICompact *clone() const = 0;
 
     static RC setLogger(ILogger* const logger);
+    static ILogger* getLogger();
 
     virtual bool isInside(IVector const * const&vec) const = 0;
     /*
@@ -41,6 +42,7 @@ public:
         virtual IIterator * clone() const = 0;
 
         static RC setLogger(ILogger * const pLogger);
+        static ILogger* getLogger();
 
         virtual RC moveForwardIterator() = 0;
 
