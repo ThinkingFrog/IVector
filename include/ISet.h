@@ -56,6 +56,7 @@ public:
         virtual IIterator * clone() const = 0;
 
         static RC setLogger(ILogger * const pLogger);
+        static ILogger* getLogger();
 
         /*
         * Moves iterator forward/backward
