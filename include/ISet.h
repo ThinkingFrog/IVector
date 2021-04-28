@@ -7,6 +7,7 @@
 class LIB_EXPORT ISet {
 public:
     static RC setLogger(ILogger* const logger);
+    static ILogger* getLogger();
 
     static ISet* createSet();
     virtual ISet* clone() const = 0;
