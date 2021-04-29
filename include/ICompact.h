@@ -45,7 +45,7 @@ public:
         virtual RC next() = 0;
         
         /*
-        * Iterator is invalid, if it cannot move forward anymore
+        * Iterator is invalid, if it was moved forward, when iterator wasn't able to move
         */
         virtual bool isValid() const = 0;
 
