@@ -43,6 +43,11 @@ public:
         static RC setLogger(ILogger * const pLogger);
 
         virtual RC next() = 0;
+        
+        /*
+        * Iterator is invalid, if it cannot move forward anymore
+        */
+        virtual bool isValid() const = 0;
 
         /*
         * Method creating new IVector and assigning new address to val
