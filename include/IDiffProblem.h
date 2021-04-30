@@ -9,6 +9,7 @@ public:
     IDiffProblem * clone() const override = 0;
 
     static RC setLogger(ILogger * const logger);
+    static ILogger* getLogger();
 
     bool isValidParams(IVector const * const &params) const override = 0;
     bool isValidArgs(IVector const * const &args) const override = 0;

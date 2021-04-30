@@ -14,6 +14,7 @@ public:
     virtual RC setData(size_t dim, size_t const* const& ptr_data) = 0;
 
     static RC setLogger(ILogger * const pLogger);
+    static ILogger* getLogger();
 
     virtual RC getAxisIndex(size_t axisIndex, size_t &val) const = 0;
     virtual RC setAxisIndex(size_t axisIndex, size_t val) = 0;
