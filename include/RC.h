@@ -21,5 +21,6 @@ enum class RC {
     SET_INDEX_OVERFLOW,
     NO_ARGS_SET,
     NO_PARAMS_SET,
+    NO_PROBLEM_SET,
     AMOUNT
 };
