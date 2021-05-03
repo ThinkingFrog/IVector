@@ -15,6 +15,7 @@ enum class RC {
     IO_ERROR, // Couldn't write/read to/from file
     MEMORY_INTERSECTION, // Found intersecting memory while copying instance
     SOURCE_SET_DESTROYED,
+    SOURCE_COMPACT_DESTROYED,
     SOURCE_SET_EMPTY,
     VECTOR_ALREADY_EXIST,
     SET_INDEX_OVERFLOW,
