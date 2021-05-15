@@ -5,7 +5,7 @@
 
 class LIB_EXPORT IDiffProblem : public IProblem {
 public:
-    static IDiffProblem * createDiffProblem(ICompact const * const &params, ICompact const * const &args);
+    static IDiffProblem * createDiffProblem();
     IDiffProblem * clone() const override = 0;
 
     static RC setLogger(ILogger * const logger);
@@ -16,6 +16,10 @@ public:
 
     RC setParams(IVector const * const &params) override = 0;
     RC setArgs(IVector const * const &args) override = 0;
+
+    virtual RC setParamsDomain(ICompact const * const &params) = 0;
+    // logger should be set equivalent to setLogger() if it's unavailable
+    virtual RC setArgsDomain(ICompact const * const &args, ILogger* logger = nullptr) = 0;
 
     double evalByParams(IVector const *const &params) const override = 0;
     double evalByArgs(IVector const *const &args) const override = 0;

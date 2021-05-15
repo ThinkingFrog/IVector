@@ -1,3 +1,4 @@
+/*
 #include "IBroker.h"
 #include "IProblem.h"
 #include "Interfacedllexport.h"
@@ -18,7 +19,7 @@ namespace {
         }
 
         void* getInterfaceImpl(INTERFACE_IMPL impl) const override {
-            return (impl == INTERFACE_IMPL::IPROBLEM) ? IProblem::CreateProblem() : NULL;
+            // return (impl == INTERFACE_IMPL::IPROBLEM) ? IProblem::createProblem() : NULL;
         }
 
         void release() override {
@@ -35,7 +36,6 @@ extern "C" {
     }
 }
 
-/*
 APP
 
 typedef void* (*ptr_getBroker)();

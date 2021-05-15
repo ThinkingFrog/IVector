@@ -17,6 +17,8 @@
 
 #ifdef BUILD_INTERFACES //macro that means that dll building now
 #define LIB_EXPORT LIB_DLL_EXPORT
+#eilf STATIC_LIB
+#define LIB_EXPORT
 #else
 #define LIB_EXPORT LIB_DLL_IMPORT
 #endif

@@ -16,7 +16,8 @@ class LIB_EXPORT ISolver {
 
     virtual bool isValidArgsDomain(ICompact const* const& args) const = 0;
     virtual bool isValidParamsDomain(ICompact const* const& params) const = 0;
-    virtual RC setArgsDomain(ICompact const* const& args) = 0;
+    // logger should be set equivalent to setLogger() if it's unavailable
+    virtual RC setArgsDomain(ICompact const* const& args, ILogger* logger = nullptr) = 0;
     virtual RC setParamsDomain(ICompact const* const& params) = 0;
 
     // initArg - starting point (x0)
